@@ -3,7 +3,6 @@ require 'active_support/inflector'
 
 class Song
 
-
   def self.table_name
     self.to_s.downcase.pluralize
   end
@@ -50,6 +49,7 @@ class Song
   end
 
   def col_names_for_insert
+    
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
@@ -59,6 +59,3 @@ class Song
   end
 
 end
-
-
-
